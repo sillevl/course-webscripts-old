@@ -1,0 +1,13 @@
+site_name: Webscripts
+theme: readthedocs
+markdown_extensions:
+ - admonition
+ - attr_list
+ - def_list
+pages:
+  - Introduction: index.md
+  - Composer: composer.md
+  - npm: npm.md
+  - Bower: bower.md
+  - Grunt: grunt.md
+  - SASS: sass.md
