@@ -1,0 +1,129 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#welcome-to-mkdocs",
+            "text": "For full documentation visit  mkdocs.org .",
+            "title": "Welcome to MkDocs"
+        },
+        {
+            "location": "/#commands",
+            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.",
+            "title": "Commands"
+        },
+        {
+            "location": "/#project-layout",
+            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.",
+            "title": "Project layout"
+        },
+        {
+            "location": "/composer/",
+            "text": "Composer",
+            "title": "Composer"
+        },
+        {
+            "location": "/composer/#composer",
+            "text": "",
+            "title": "Composer"
+        },
+        {
+            "location": "/npm/",
+            "text": "npm",
+            "title": "npm"
+        },
+        {
+            "location": "/npm/#npm",
+            "text": "",
+            "title": "npm"
+        },
+        {
+            "location": "/bower/",
+            "text": "Bower",
+            "title": "Bower"
+        },
+        {
+            "location": "/bower/#bower",
+            "text": "",
+            "title": "Bower"
+        },
+        {
+            "location": "/grunt/",
+            "text": "Grunt task runner\n\n\nWhy use a task runner?\n\n\nIn one word: \nautomation\n. The less work you have to do when performing repetitive\ntasks like minification, compilation, unit testing, linting, etc, the easier your\njob becomes. After you've configured it through a \nGruntfile\n, a task runner can\ndo most of that mundane work for you\u2014and your team\u2014with basically zero effort.\n\n\nGrunt website: \nhttp://gruntjs.com/\n\n\nInstallation\n\n\nGrunt makes use of two npm packages. 'grunt-cli' to make the \ngrunt\n command globally\navailable, and 'grunt' which will add the task runner's code to your project.\n\n\ngrunt-cli\n\n\nYou must install the \ngrunt-cli\n command line interface tool globally on your system.\nThis will enable you to call the \ngrunt\n command from everywhere inside your commandline (such as powershell, bash,...)\n\n\nnpm install -g grunt-cli\n\n\n\n\ngrunt\n\n\nThis package needs to be installed in every project you where you want to use the Grunt task runner.\nDon't forget to add the \n--save-dev\n option to the command to save the dependency into the \npackage.json\n file\n\n\nnpm install grunt --save-dev\n\n\n\n\nGruntfile.js\n\n\nAll tasks and their configuration is managed in the \nGruntfile.js\n file.\nThis is an example of a minimal configuration.\n\n\nmodule.exports = function(grunt) {\n\n    grunt.initConfig({\n\n        // ... task configuration\n\n    });\n};\n\n\n\n\nCheck if PHP is PSR-2 compliant\n\n\nMake use of the PHP CodeSniffer package to check if php files comply to the PSR recommendations.\nMore information: \nhttps://github.com/SaschaGalley/grunt-phpcs\n\n\n\n\nAttention\n\n\nPHP Code Sniffer must be installed on the system (preferably with composer).\n\n\n\n\n1) Install the grunt-phpcs plugin\n\n\nnpm install grunt-phpcs --save-dev\n\n\n\n\n2) Load the task in your projects Gruntfile. Add the following \ngruntfile.js\n\n\ngrunt.loadNpmTasks('grunt-phpcs');\n\n\n\n\nExample configuration\n\n\nThis example will check the index.php file and all the PHP files in the lib directory (even in subdirectories)\n\n\nmodule.exports = function(grunt) {\n\n    grunt.initConfig({\n        phpcs: {\n            application: {\n                src: ['./index.php', './lib/**/*.php']\n            },\n            options: {\n                bin: 'phpcs',\n                standard: 'PSR2'\n            }\n        }\n    });\n\n    grunt.loadNpmTasks('grunt-phpcs');\n\n    grunt.registerTask('default', ['watch']);\n};\n\n\n\n\nMerging JavaScript files\n\n\nMerge multiple JavaScript file's into a single file. These JavaScript files\ncan include files from libraries or custom scripts.\n\n\nCompiling sass\n\n\nCompile Sass code into css, and merge libraries with custom code. The result\nis a single css file to be referenced from html.\n\n\nWatch for file changes\n\n\nWhen a file is changed and saved, automatically run grunt tasks.\n\n\nExample Gruntfile.js\n\n\nmodule.exports = function(grunt) {\n\n    grunt.initConfig({\n        phpcs: {\n            application: {\n                src: ['./index.php']\n            },\n            options: {\n                bin: 'phpcs',\n                standard: 'PSR2'\n            }\n        },\n        concat: {\n            dist: {\n              src: [\n                  'bower_components/jquery/dist/jquery.js',\n                  'bower_components/foundation-sites/dist/foundation.js',\n                  'src/js/app.js'\n              ],\n              dest: 'js/app.js'\n            }\n        },\n        sass: {\n            options: {\n                includePaths: ['bower_components/foundation-sites/scss/']\n            },\n            dist: {\n                files: {\n                    'css/app.css': 'src/scss/app.scss'\n                }\n            }\n        },\n        watch: {\n          scripts: {\n            files: ['index.php'],\n            tasks: ['phpcs'],\n            },\n          js: {\n              files: ['src/js/*.js'],\n              tasks: ['concat']\n          },\n          sass: {\n              files: ['src/scss/*.scss'],\n              tasks: ['sass']\n          }\n        }\n    });\n\n    grunt.loadNpmTasks('grunt-phpcs');\n    grunt.loadNpmTasks('grunt-contrib-concat');\n    grunt.loadNpmTasks('grunt-sass');\n    grunt.loadNpmTasks('grunt-contrib-watch');\n\n    grunt.registerTask('default', ['watch']);\n    grunt.registerTask('assets', ['sass', 'concat']);\n};",
+            "title": "Grunt"
+        },
+        {
+            "location": "/grunt/#grunt-task-runner",
+            "text": "",
+            "title": "Grunt task runner"
+        },
+        {
+            "location": "/grunt/#why-use-a-task-runner",
+            "text": "In one word:  automation . The less work you have to do when performing repetitive\ntasks like minification, compilation, unit testing, linting, etc, the easier your\njob becomes. After you've configured it through a  Gruntfile , a task runner can\ndo most of that mundane work for you\u2014and your team\u2014with basically zero effort.  Grunt website:  http://gruntjs.com/",
+            "title": "Why use a task runner?"
+        },
+        {
+            "location": "/grunt/#installation",
+            "text": "Grunt makes use of two npm packages. 'grunt-cli' to make the  grunt  command globally\navailable, and 'grunt' which will add the task runner's code to your project.",
+            "title": "Installation"
+        },
+        {
+            "location": "/grunt/#grunt-cli",
+            "text": "You must install the  grunt-cli  command line interface tool globally on your system.\nThis will enable you to call the  grunt  command from everywhere inside your commandline (such as powershell, bash,...)  npm install -g grunt-cli",
+            "title": "grunt-cli"
+        },
+        {
+            "location": "/grunt/#grunt",
+            "text": "This package needs to be installed in every project you where you want to use the Grunt task runner.\nDon't forget to add the  --save-dev  option to the command to save the dependency into the  package.json  file  npm install grunt --save-dev",
+            "title": "grunt"
+        },
+        {
+            "location": "/grunt/#gruntfilejs",
+            "text": "All tasks and their configuration is managed in the  Gruntfile.js  file.\nThis is an example of a minimal configuration.  module.exports = function(grunt) {\n\n    grunt.initConfig({\n\n        // ... task configuration\n\n    });\n};",
+            "title": "Gruntfile.js"
+        },
+        {
+            "location": "/grunt/#check-if-php-is-psr-2-compliant",
+            "text": "Make use of the PHP CodeSniffer package to check if php files comply to the PSR recommendations.\nMore information:  https://github.com/SaschaGalley/grunt-phpcs   Attention  PHP Code Sniffer must be installed on the system (preferably with composer).   1) Install the grunt-phpcs plugin  npm install grunt-phpcs --save-dev  2) Load the task in your projects Gruntfile. Add the following  gruntfile.js  grunt.loadNpmTasks('grunt-phpcs');",
+            "title": "Check if PHP is PSR-2 compliant"
+        },
+        {
+            "location": "/grunt/#example-configuration",
+            "text": "This example will check the index.php file and all the PHP files in the lib directory (even in subdirectories)  module.exports = function(grunt) {\n\n    grunt.initConfig({\n        phpcs: {\n            application: {\n                src: ['./index.php', './lib/**/*.php']\n            },\n            options: {\n                bin: 'phpcs',\n                standard: 'PSR2'\n            }\n        }\n    });\n\n    grunt.loadNpmTasks('grunt-phpcs');\n\n    grunt.registerTask('default', ['watch']);\n};",
+            "title": "Example configuration"
+        },
+        {
+            "location": "/grunt/#merging-javascript-files",
+            "text": "Merge multiple JavaScript file's into a single file. These JavaScript files\ncan include files from libraries or custom scripts.",
+            "title": "Merging JavaScript files"
+        },
+        {
+            "location": "/grunt/#compiling-sass",
+            "text": "Compile Sass code into css, and merge libraries with custom code. The result\nis a single css file to be referenced from html.",
+            "title": "Compiling sass"
+        },
+        {
+            "location": "/grunt/#watch-for-file-changes",
+            "text": "When a file is changed and saved, automatically run grunt tasks.",
+            "title": "Watch for file changes"
+        },
+        {
+            "location": "/grunt/#example-gruntfilejs",
+            "text": "module.exports = function(grunt) {\n\n    grunt.initConfig({\n        phpcs: {\n            application: {\n                src: ['./index.php']\n            },\n            options: {\n                bin: 'phpcs',\n                standard: 'PSR2'\n            }\n        },\n        concat: {\n            dist: {\n              src: [\n                  'bower_components/jquery/dist/jquery.js',\n                  'bower_components/foundation-sites/dist/foundation.js',\n                  'src/js/app.js'\n              ],\n              dest: 'js/app.js'\n            }\n        },\n        sass: {\n            options: {\n                includePaths: ['bower_components/foundation-sites/scss/']\n            },\n            dist: {\n                files: {\n                    'css/app.css': 'src/scss/app.scss'\n                }\n            }\n        },\n        watch: {\n          scripts: {\n            files: ['index.php'],\n            tasks: ['phpcs'],\n            },\n          js: {\n              files: ['src/js/*.js'],\n              tasks: ['concat']\n          },\n          sass: {\n              files: ['src/scss/*.scss'],\n              tasks: ['sass']\n          }\n        }\n    });\n\n    grunt.loadNpmTasks('grunt-phpcs');\n    grunt.loadNpmTasks('grunt-contrib-concat');\n    grunt.loadNpmTasks('grunt-sass');\n    grunt.loadNpmTasks('grunt-contrib-watch');\n\n    grunt.registerTask('default', ['watch']);\n    grunt.registerTask('assets', ['sass', 'concat']);\n};",
+            "title": "Example Gruntfile.js"
+        },
+        {
+            "location": "/sass/",
+            "text": "SASS",
+            "title": "SASS"
+        },
+        {
+            "location": "/sass/#sass",
+            "text": "",
+            "title": "SASS"
+        }
+    ]
+}
