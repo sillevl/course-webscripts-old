@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>None/</loc>
+     <loc>/</loc>
      <lastmod>2016-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,7 @@
 
     
     <url>
-     <loc>None/composer/</loc>
+     <loc>/composer/</loc>
      <lastmod>2016-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -19,7 +19,7 @@
 
     
     <url>
-     <loc>None/npm/</loc>
+     <loc>/npm/</loc>
      <lastmod>2016-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -27,7 +27,7 @@
 
     
     <url>
-     <loc>None/bower/</loc>
+     <loc>/bower/</loc>
      <lastmod>2016-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -35,7 +35,7 @@
 
     
     <url>
-     <loc>None/grunt/</loc>
+     <loc>/grunt/</loc>
      <lastmod>2016-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -43,7 +43,7 @@
 
     
     <url>
-     <loc>None/sass/</loc>
+     <loc>/sass/</loc>
      <lastmod>2016-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
