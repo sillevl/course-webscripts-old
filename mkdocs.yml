@@ -6,8 +6,29 @@ markdown_extensions:
  - def_list
 pages:
   - Introduction: index.md
-  - Composer: composer.md
-  - npm: npm.md
-  - Bower: bower.md
-  - Grunt: grunt.md
-  - SASS: sass.md
+  - PHP:
+    - PHP language: php/php.md
+    - PHP Standards Recommendation - PSR: php/psr.md
+    - Components: php/components.md
+    - Good Practices: php/goodpractices.md
+    - Frameworks: php/frameworks.md
+    - Testing: php/testing.md
+  - JavaScript:
+    - JavaScript language: javascript/javascript.md
+    - jQuery: javascript/jquery.md
+    - NodeJs: javascript/nodejs.md
+    - Frameworks: javascript/frameworks.md
+  - SASS: sass/sass.md
+  - Tools:
+    - Composer: tools/composer.md
+    - npm: tools/npm.md
+    - Bower: tools/bower.md
+    - Grunt: tools/grunt.md
+  - Other:
+    - REST/RestFull: other/rest.md
+    - Oauth: other/oauth.md
+    - Websockets: other/websockets.md
+    - Apache: other/apache.md
+    - Hosting: other/hosting.md
+    - Docker: other/docker.md
+    - Vagrant: other/vagrant.md
